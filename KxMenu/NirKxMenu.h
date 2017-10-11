@@ -2,8 +2,8 @@
 //  NirKxMenu.m
 //  NirKxMenu
 //
-//  Created by Michael on 6/20/2017.
-//  Copyright © 2017 Michael. All rights reserved.
+//  Created by MobileDev418 on 6/20/2017.
+//  Copyright © 2017 MobileDev418. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

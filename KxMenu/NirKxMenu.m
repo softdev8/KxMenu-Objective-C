@@ -2,8 +2,8 @@
 //  NirKxMenu.m
 //  NirKxMenu
 //
-//  Created by Nirvana on 9/25/15.
-//  Copyright © 2015 NSNirvana. All rights reserved.
+//  Created by MobileDev418 on 9/25/17.
+//  Copyright © 2017 MobileDev418. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -41,9 +41,6 @@
     }
     return self;
 }
-
-// thank horaceho https://github.com/horaceho
-// for his solution described in https://github.com/kolyvan/kxmenu/issues/9
 
 - (void)singleTap:(UITapGestureRecognizer *)recognizer
 {
@@ -320,7 +317,7 @@ typedef enum {
     self.frame = (CGRect){self.arrowPoint, 1, 1};
     
     
-    //Menu弹出动画
+    //Menu
     [UIView animateWithDuration:0.2
                      animations:^(void) {
                          
@@ -342,7 +339,7 @@ typedef enum {
             const CGRect toFrame = (CGRect){self.arrowPoint, 1, 1};
             _contentView.hidden = YES;
             
-            //Menu收回动画
+            //Menu
             [UIView animateWithDuration:0.1
                              animations:^(void) {
                                  
@@ -417,10 +414,10 @@ typedef enum {
 #endif       
         const CGSize imageSize = menuItem.image.size;
         
-        //这个地方为header和Footer预留了高度
+        //
         const CGFloat itemHeight = MAX(titleSize.height, imageSize.height) + kMarginY * 2;
         
-        //这个地方设置item宽度
+        //
         const CGFloat itemWidth = ((!menuItem.enabled && !menuItem.image) ? titleSize.width : maxImageWidth + titleSize.width) + kMarginX * 2 + self.kxMenuViewOptions.intervalSpacing;
         
         if (itemHeight > maxItemHeight)
@@ -433,14 +430,14 @@ typedef enum {
     maxItemWidth  = MAX(maxItemWidth, kMinMenuItemWidth);
     maxItemHeight = MAX(maxItemHeight, kMinMenuItemHeight);
     
-    //这个地方设置字图间距
+    //
     //const CGFloat titleX = kMarginX * 2 + maxImageWidth;
     const CGFloat titleX = maxImageWidth + self.kxMenuViewOptions.intervalSpacing;
     
     const CGFloat titleWidth = maxItemWidth - titleX - kMarginX *2;
     
     UIImage *selectedImage = [KxMenuView selectedImage:(CGSize){maxItemWidth, maxItemHeight + 2}];
-    //配置：分隔线是与内容等宽还是与菜单等宽
+    //
     int insets = 0;
     
     if (self.kxMenuViewOptions.seperatorLineHasInsets) {
@@ -520,7 +517,7 @@ typedef enum {
             titleLabel.font = titleFont;
             titleLabel.textAlignment = menuItem.alignment;
             
-            //配置：menuItem字体颜色
+            //
             //titleLabel.textColor = menuItem.foreColor ? menuItem.foreColor : [UIColor blackColor];
             titleLabel.textColor = [UIColor colorWithRed:self.kxMenuViewOptions.textColor.R green:self.kxMenuViewOptions.textColor.G blue:self.kxMenuViewOptions.textColor.B alpha:1];
             
@@ -546,7 +543,7 @@ typedef enum {
             
             UIImageView *gradientView = [[UIImageView alloc] initWithImage:gradientLine];
             
-            //配置：分隔线是与内容等宽还是与菜单等宽
+            //
             if (self.kxMenuViewOptions.seperatorLineHasInsets) {
                 gradientView.frame = (CGRect){kMarginX * 2, maxItemHeight + 1, gradientLine.size};
             } else {
@@ -555,7 +552,7 @@ typedef enum {
             
             gradientView.contentMode = UIViewContentModeLeft;
             
-            //配置：有无分隔线
+            //
             if (self.kxMenuViewOptions.hasSeperatorLine) {
                 [itemView addSubview:gradientView];
                 itemY += 2;
@@ -619,7 +616,7 @@ typedef enum {
 {
     const CGFloat locations[5] = {0,0.2,0.5,0.8,1};
     
-    const CGFloat R = 0.890f, G = 0.890f, B = 0.890f; //分隔线的颜色 -- 隐藏属性
+    const CGFloat R = 0.890f, G = 0.890f, B = 0.890f; //
     
     const CGFloat components[20] = {
         R,G,B,1,
@@ -664,7 +661,7 @@ typedef enum {
              inContext:(CGContextRef) context
 {
     
-    //配置：整个Menu的底色 重中之重
+    //
     
     CGFloat R0 = self.kxMenuViewOptions.menuBackgroundColor.R, G0 = self.kxMenuViewOptions.menuBackgroundColor.G, B0 = self.kxMenuViewOptions.menuBackgroundColor.B;
     
@@ -765,7 +762,7 @@ typedef enum {
     
     const CGRect bodyFrame = {X0, Y0, X1 - X0, Y1 - Y0};
     
-    //配置：这里修改菜单圆角
+    //
     UIBezierPath *borderPath = [UIBezierPath bezierPathWithRoundedRect:bodyFrame
                                                           cornerRadius:self.kxMenuViewOptions.menuCornerRadius];
     
